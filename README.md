@@ -585,7 +585,7 @@ If this should remain private to Lamb Of Yasha:
 
 3. **Install in other repos**
    ```bash
-   npm install @lambofyasha/loy-webapp-essentials --registry=https://npm.pkg.github.com
+   npm install @lambofyasha/loy-webapp-essentaials@1.0.0 --registry=https://npm.pkg.github.com
    ```
 
 ---
