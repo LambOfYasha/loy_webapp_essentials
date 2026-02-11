@@ -1,5 +1,5 @@
 {
-  "name": "loy-webapp-essentials",
+  "name": "@lambofyasha/loy-webapp-essentials",
   "version": "1.0.0",
   "description": "Internal NPM package for Lamb Of Yasha Software — utilities, hooks, UI components, and theme system for Next.js + Tailwind + shadcn webapps.",
   "author": "LambOfYasha Software",
@@ -77,6 +77,4 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   }
-
-
 }
