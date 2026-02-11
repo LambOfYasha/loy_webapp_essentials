@@ -72,5 +72,11 @@
     "utilities",
     "hooks",
     "components"
-  ]
+  ],
+  
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+
+
 }
