@@ -489,7 +489,7 @@ npm run typecheck # Type checking
 
 1. **Phase 1: Install and configure**
    ```bash
-   npm install loy-webapp-essentials
+   npm install loy_webapp_essentials
    ```
    Add the Tailwind preset and CSS variables (see New Projects steps 3-4).
 
@@ -585,7 +585,7 @@ If this should remain private to Lamb Of Yasha:
 
 3. **Install in other repos**
    ```bash
-   npm install @lambofyasha/loy-webapp-essentaials@1.0.0 --registry=https://npm.pkg.github.com
+   npm install @lambofyasha/loy_webapp_essentaials@1.0.0 --registry=https://npm.pkg.github.com
    ```
 
 ---
