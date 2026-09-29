@@ -1,13 +1,21 @@
 {
   "name": "@lambofyasha/loy-webapp-essentials",
-  "version": "1.0.0",
-  "description": "Internal NPM package for Lamb Of Yasha Software — utilities, hooks, UI components, and theme system for Next.js + Tailwind + shadcn webapps.",
+  "version": "1.1.0",
+  "description": "Utilities, hooks, UI, and theme for LOY Next.js apps. Data stores live in @lambofyasha/loy-dual-store.",
   "author": "LambOfYasha Software",
   "license": "MIT",
   "type": "module",
   "main": "./dist/core/index.cjs",
   "module": "./dist/core/index.js",
   "types": "./dist/core/index.d.ts",
+  "homepage": "https://github.com/LambOfYasha/loy_webapp_essentials#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LambOfYasha/loy_webapp_essentials.git"
+  },
+  "bugs": {
+    "url": "https://github.com/LambOfYasha/loy_webapp_essentials/issues"
+  },
   "files": [
     "dist",
     "tailwind-preset.js"
@@ -38,7 +46,6 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch",
-    "lint": "eslint src/",
     "typecheck": "tsc --noEmit",
     "prepublishOnly": "npm run build"
   },
