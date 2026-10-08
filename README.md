@@ -1,11 +1,11 @@
-# loy-webapp-essentials
+# @lambofyasha/loy-webapp-essentials
 
 Internal NPM package for **Lamb Of Yasha Software** — a comprehensive toolkit of utilities, hooks, UI components, and a theme system for Next.js + Tailwind + shadcn webapps.
 
 ## Installation
 
 ```bash
-npm install loy-webapp-essentials
+npm install @lambofyasha/loy-webapp-essentials
 ```
 
 **Peer dependencies** (install alongside):
@@ -21,10 +21,10 @@ npm install next tailwindcss
 Import from four subpath entry points:
 
 ```ts
-import { ... } from "loy-webapp-essentials/core"   // Pure logic, no React
-import { ... } from "loy-webapp-essentials/hooks"   // React hooks
-import { ... } from "loy-webapp-essentials/ui"      // React + Tailwind components
-import { ... } from "loy-webapp-essentials/theme"   // Tailwind preset & tokens
+import { ... } from "@lambofyasha/loy-webapp-essentials/core"   // Pure logic, no React
+import { ... } from "@lambofyasha/loy-webapp-essentials/hooks"   // React hooks
+import { ... } from "@lambofyasha/loy-webapp-essentials/ui"      // React + Tailwind components
+import { ... } from "@lambofyasha/loy-webapp-essentials/theme"   // Tailwind preset & tokens
 ```
 
 ---
@@ -36,7 +36,7 @@ Works in frontend, backend, and scripts. Zero React dependency.
 ### API Client
 
 ```ts
-import { createApiClient } from "loy-webapp-essentials/core"
+import { createApiClient } from "@lambofyasha/loy-webapp-essentials/core"
 
 const api = createApiClient({
   baseUrl: "https://api.example.com",
@@ -52,13 +52,13 @@ await api.post("/tickets", { title: "Bug report" })
 ### Pagination Helpers
 
 ```ts
-import { buildPaginationParams, buildPaginatedResponse, getOffset } from "loy-webapp-essentials/core"
+import { buildPaginationParams, buildPaginatedResponse, getOffset } from "@lambofyasha/loy-webapp-essentials/core"
 ```
 
 ### Error System
 
 ```ts
-import { AppError } from "loy-webapp-essentials/core"
+import { AppError } from "@lambofyasha/loy-webapp-essentials/core"
 
 throw new AppError("NOT_FOUND", "User not found", { userId: "123" })
 
@@ -69,7 +69,7 @@ throw new AppError("NOT_FOUND", "User not found", { userId: "123" })
 ### Validators
 
 ```ts
-import { isValidEmail, validatePassword, isValidPhone, isValidUrl, isNonEmpty } from "loy-webapp-essentials/core"
+import { isValidEmail, validatePassword, isValidPhone, isValidUrl, isNonEmpty } from "@lambofyasha/loy-webapp-essentials/core"
 
 validatePassword("MyP@ss1", { minLength: 8, requireSpecial: true })
 // => { valid: false, score: 4, issues: ["Must be at least 8 characters"] }
@@ -83,7 +83,7 @@ import {
   formatNumber, formatCompactNumber, formatBytes,
   slugify, truncate, capitalize, titleCase, initials,
   safeJsonParse, maskEmail, maskPhone,
-} from "loy-webapp-essentials/core"
+} from "@lambofyasha/loy-webapp-essentials/core"
 
 formatCurrency(29.99)            // "$29.99"
 formatRelativeTime(someDate)     // "3h ago"
@@ -95,7 +95,7 @@ maskEmail("user@example.com")   // "u**r@example.com"
 ### Auth Helpers
 
 ```ts
-import { hasRole, can, canAny, guard, isAuthenticated } from "loy-webapp-essentials/core"
+import { hasRole, can, canAny, guard, isAuthenticated } from "@lambofyasha/loy-webapp-essentials/core"
 
 hasRole(user, "ADMIN")       // true/false
 can(user, "DELETE_USERS")    // true/false
@@ -105,7 +105,7 @@ guard(user, { requireRoles: ["ADMIN"], redirectTo: "/unauthorized" })
 ### Async Helpers
 
 ```ts
-import { sleep, debounce, throttle, retry, withTimeout, settled } from "loy-webapp-essentials/core"
+import { sleep, debounce, throttle, retry, withTimeout, settled } from "@lambofyasha/loy-webapp-essentials/core"
 
 await retry(() => fetchData(), { attempts: 3, backoff: true })
 await withTimeout(longOperation(), 5000, "Took too long")
@@ -114,7 +114,7 @@ await withTimeout(longOperation(), 5000, "Took too long")
 ### Security
 
 ```ts
-import { sanitizeHtml, sanitizeObject, stripTags, createRateLimiter, generateCsrfToken } from "loy-webapp-essentials/core"
+import { sanitizeHtml, sanitizeObject, stripTags, createRateLimiter, generateCsrfToken } from "@lambofyasha/loy-webapp-essentials/core"
 
 const limiter = createRateLimiter(100, 60_000) // 100 req/min
 limiter.check("user-123") // { allowed: true, remaining: 99, resetAt: ... }
@@ -123,7 +123,7 @@ limiter.check("user-123") // { allowed: true, remaining: 99, resetAt: ... }
 ### Logging & Event Tracking
 
 ```ts
-import { createLogger, createEventTracker } from "loy-webapp-essentials/core"
+import { createLogger, createEventTracker } from "@lambofyasha/loy-webapp-essentials/core"
 
 const log = createLogger({ context: "PaymentService", level: "debug" })
 log.info("Payment processed", { amount: 99.99 })
@@ -135,7 +135,7 @@ tracker.track("button_click", { page: "/dashboard" }, userId)
 ### Config & Feature Flags
 
 ```ts
-import { env, envNumber, envBool, envUrl, createFeatureFlags } from "loy-webapp-essentials/core"
+import { env, envNumber, envBool, envUrl, createFeatureFlags } from "@lambofyasha/loy-webapp-essentials/core"
 
 const apiUrl = envUrl("API_URL")
 const port = envNumber("PORT", 3000)
@@ -152,7 +152,7 @@ features.isEnabled("payments") // true
 ### useAuth & AuthProvider
 
 ```tsx
-import { AuthProvider, useAuth } from "loy-webapp-essentials/hooks"
+import { AuthProvider, useAuth } from "@lambofyasha/loy-webapp-essentials/hooks"
 
 // Wrap your app
 <AuthProvider onLogin={(user, token) => console.log("Logged in")}>
@@ -204,7 +204,7 @@ const [theme, setTheme, removeTheme] = useLocalStorage("theme", "light")
 ### useTheme & ThemeProvider
 
 ```tsx
-import { ThemeProvider, useTheme } from "loy-webapp-essentials/hooks"
+import { ThemeProvider, useTheme } from "@lambofyasha/loy-webapp-essentials/hooks"
 
 <ThemeProvider defaultTheme="system">
   <App />
@@ -228,7 +228,7 @@ All components use Tailwind CSS classes and respect CSS variable theming.
 ### Layouts
 
 ```tsx
-import { AppLayout, DashboardLayout, AuthLayout } from "loy-webapp-essentials/ui"
+import { AppLayout, DashboardLayout, AuthLayout } from "@lambofyasha/loy-webapp-essentials/ui"
 
 <DashboardLayout
   sidebar={<Sidebar items={navItems} />}
@@ -248,7 +248,7 @@ import { AppLayout, DashboardLayout, AuthLayout } from "loy-webapp-essentials/ui
 ### Navigation
 
 ```tsx
-import { Sidebar, Header, Breadcrumbs } from "loy-webapp-essentials/ui"
+import { Sidebar, Header, Breadcrumbs } from "@lambofyasha/loy-webapp-essentials/ui"
 
 <Sidebar
   items={[
@@ -270,7 +270,7 @@ import { Sidebar, Header, Breadcrumbs } from "loy-webapp-essentials/ui"
 ### Feedback States
 
 ```tsx
-import { LoadingState, EmptyState, ErrorState, LoadingOverlay } from "loy-webapp-essentials/ui"
+import { LoadingState, EmptyState, ErrorState, LoadingOverlay } from "@lambofyasha/loy-webapp-essentials/ui"
 
 <LoadingState message="Fetching data..." size="lg" />
 <EmptyState title="No users" description="Create your first user" action={<button>Add User</button>} />
@@ -281,7 +281,7 @@ import { LoadingState, EmptyState, ErrorState, LoadingOverlay } from "loy-webapp
 ### Data Display
 
 ```tsx
-import { DataTable, PaginationFooter } from "loy-webapp-essentials/ui"
+import { DataTable, PaginationFooter } from "@lambofyasha/loy-webapp-essentials/ui"
 
 <DataTable
   columns={[
@@ -299,7 +299,7 @@ import { DataTable, PaginationFooter } from "loy-webapp-essentials/ui"
 ### UX Helpers
 
 ```tsx
-import { ConfirmDialog, DeleteDialog, CopyToClipboard, ToastProvider, useToast, ModalProvider, useModal } from "loy-webapp-essentials/ui"
+import { ConfirmDialog, DeleteDialog, CopyToClipboard, ToastProvider, useToast, ModalProvider, useModal } from "@lambofyasha/loy-webapp-essentials/ui"
 
 // Toast system
 <ToastProvider position="top-right">
@@ -332,7 +332,7 @@ openModal({ title: "Edit User", content: <EditForm /> })
 ```js
 // tailwind.config.js
 module.exports = {
-  presets: [require("loy-webapp-essentials/tailwind-preset")],
+  presets: [require("@lambofyasha/loy-webapp-essentials/tailwind-preset")],
   // ...your config
 }
 ```
@@ -340,7 +340,7 @@ module.exports = {
 ### Color Tokens & CSS Variables
 
 ```ts
-import { colors, lightTheme, darkTheme, generateThemeStylesheet } from "loy-webapp-essentials/theme"
+import { colors, lightTheme, darkTheme, generateThemeStylesheet } from "@lambofyasha/loy-webapp-essentials/theme"
 
 // Generate CSS for your global stylesheet
 const css = generateThemeStylesheet()
@@ -409,17 +409,17 @@ npm run typecheck # Type checking
 
 2. **Install the package**
    ```bash
-   npm install loy-webapp-essentials
+   npm install @lambofyasha/loy-webapp-essentials
    ```
 
 3. **Configure Tailwind**
    ```js
    // tailwind.config.js
    module.exports = {
-     presets: [require("loy-webapp-essentials/tailwind-preset")],
+     presets: [require("@lambofyasha/loy-webapp-essentials/tailwind-preset")],
      content: [
        "./src/**/*.{js,ts,jsx,tsx,mdx}",
-       "./node_modules/loy-webapp-essentials/dist/**/*.{js,cjs}",
+       "./node_modules/@lambofyasha/loy-webapp-essentials/dist/**/*.{js,cjs}",
      ],
      darkMode: "class",
    };
@@ -464,7 +464,7 @@ npm run typecheck # Type checking
 5. **Wrap your app with providers**
    ```tsx
    // app/layout.tsx
-   import { ToastProvider, ModalProvider, ThemeProvider } from "loy-webapp-essentials/ui";
+   import { ToastProvider, ModalProvider, ThemeProvider } from "@lambofyasha/loy-webapp-essentials/ui";
 
    export default function RootLayout({ children }: { children: React.ReactNode }) {
      return (
@@ -489,7 +489,7 @@ npm run typecheck # Type checking
 
 1. **Phase 1: Install and configure**
    ```bash
-   npm install loy_webapp_essentials
+   npm install @lambofyasha/loy-webapp-essentials
    ```
    Add the Tailwind preset and CSS variables (see New Projects steps 3-4).
 
@@ -562,7 +562,7 @@ npm run typecheck # Type checking
 
 3. **Verify publishing**
    ```bash
-   npm view loy-webapp-essentials
+   npm view @lambofyasha/loy-webapp-essentials
    ```
 
 ### Private Package (Internal Only)
@@ -585,8 +585,13 @@ If this should remain private to Lamb Of Yasha:
 
 3. **Install in other repos**
    ```bash
-   npm install @lambofyasha/loy_webapp_essentaials@1.0.0 --registry=https://npm.pkg.github.com
+   # Set NODE_AUTH_TOKEN in your shell or CI secret store first.
+   npm config set @lambofyasha:registry https://npm.pkg.github.com
+   npm config set //npm.pkg.github.com/:_authToken "$NODE_AUTH_TOKEN"
+   npm install @lambofyasha/loy-webapp-essentials@1.0.0
    ```
+
+   Do not commit the token or a real `.env.local`; use a user-level npm config or CI secret instead.
 
 ---
 
@@ -743,14 +748,14 @@ When making breaking changes:
    npm link
    
    # In test app directory
-   npm link loy-webapp-essentials
+   npm link @lambofyasha/loy-webapp-essentials
    ```
 
 2. **Or use file: protocol (like prototype)**
    ```json
    {
      "dependencies": {
-       "loy-webapp-essentials": "file:../loy_webapp_essentials"
+       "@lambofyasha/loy-webapp-essentials": "file:../loy_webapp_essentials"
      }
    }
    ```
@@ -773,8 +778,8 @@ When making breaking changes:
 
 1. **Fork and clone**
    ```bash
-   git clone https://github.com/lambofyasha/loy-webapp-essentials.git
-   cd loy-webapp-essentials
+   git clone https://github.com/LambOfYasha/loy_webapp_essentials.git
+   cd loy_webapp_essentials
    npm install
    ```
 

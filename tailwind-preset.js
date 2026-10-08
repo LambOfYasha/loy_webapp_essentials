@@ -1,5 +1,5 @@
 // Standalone Tailwind preset file for use in tailwind.config.js
-// Usage: presets: [require('loy-webapp-essentials/tailwind-preset')]
+// Usage: presets: [require('@lambofyasha/loy-webapp-essentials/tailwind-preset')]
 
 const colors = {
   primary: {
